@@ -1,2 +1,3 @@
-# ywm-website
-Official Website for Yellow World Media (YWM)
+# YWM Website V1.0
+
+Official website for Yellow World Media (YWM).
