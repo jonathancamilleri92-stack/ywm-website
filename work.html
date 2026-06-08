@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YWM | Yellow World Media</title>
+  <meta name="description" content="YWM creates professional video, photography and visual content for growing businesses. Video production, social media content, commercial photography and brand visuals." />
+  <link rel="icon" href="assets/YWM_favicon.jpg" type="image/svg+xml" />
+  <style>
+    :root{--yellow:#f4c400;--black:#030303;--white:#fff;--muted:#a8a8a8;--soft:#d9d9d9;--line:rgba(255,255,255,.12);--yellow-line:rgba(244,196,0,.28);--max:1180px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;overflow-x:hidden}img,video{max-width:100%}a{color:inherit;text-decoration:none}::selection{background:var(--yellow);color:#000}
+    .page-noise{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+    header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(18px,4vw,46px);background:linear-gradient(to bottom,rgba(0,0,0,.86),rgba(0,0,0,.2),rgba(0,0,0,0));backdrop-filter:blur(2px)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}.brand img{height:42px;width:auto;display:block;object-fit:contain}.nav{display:flex;align-items:center;gap:22px;color:#eee;font-size:12px;text-transform:uppercase;letter-spacing:.12em}.nav a{opacity:.86}.nav a:hover{opacity:1;color:var(--yellow)}.lang{color:var(--yellow)!important;white-space:nowrap;opacity:1!important}
+    .hero{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:120px 22px 74px;background-image:url("assets/hero-poster.jpg");
+  background-size:cover;background-position:center;background-color:#000;}.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#111}.hero:before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 42%,rgba(0,0,0,.16),rgba(0,0,0,.72) 68%,rgba(0,0,0,.9)),linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.26) 40%,rgba(0,0,0,.86))}.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:220px;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,0),var(--black))}.hero-inner{position:relative;z-index:2;width:min(1100px,94vw);transform: translateY(-40px)}.hero-logo{width:min(320px,86vw);display:block;margin:0 auto 24px;filter:drop-shadow(0 18px 48px rgba(0,0,0,.65))}
+    .kicker{color:var(--yellow);font-size:12px;letter-spacing:.28em;text-transform:uppercase;margin:0 0 18px;font-weight:700}h1{margin:0 auto;font-size:clamp(44px,8.7vw,108px);line-height:.92;letter-spacing:-.065em;max-width:980px}h1 span{color:var(--yellow)}.lead{max-width:9000px;margin:24px auto 32px;color:#e5e5e5;font-size:clamp(16px,2.2vw,22px);line-height:1.48}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:14px 21px;border-radius:999px;border:1px solid rgba(255,255,255,.32);text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.12em;transition:.2s ease}.btn:hover{transform:translateY(-2px);border-color:var(--yellow)}.btn.primary{background:var(--yellow);border-color:var(--yellow);color:#000}.scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;color:#aaa;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+    section{padding:92px clamp(18px,4vw,46px)}.wrap{width:min(var(--max),100%);margin:auto}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:34px}.eyebrow{color:var(--yellow);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.22em;margin:0 0 12px}h2{font-size:clamp(34px,5.5vw,70px);line-height:.94;letter-spacing:-.06em;margin:0}h2 span{color:var(--yellow)}.sub{color:var(--muted);font-size:17px;line-height:1.55;max-width:520px;margin:0}
+    .trusted{padding-top:44px;padding-bottom:44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}.logo-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.client-pill{border:1px solid var(--line);border-radius:999px;padding:14px 18px;text-align:center;color:#d5d5d5;text-transform:uppercase;letter-spacing:.12em;font-size:12px;background:rgba(0,0,0,.32)}
+    .work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.project{position:relative;min-height:420px;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:#111;display:flex;align-items:flex-end}.project img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease;opacity:.84}.project:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.2) 58%,rgba(0,0,0,.08))}.project:hover img{transform:scale(1.04)}.project-info{position:relative;z-index:2;padding:22px}.project-type{color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:9px}.project h3{margin:0;font-size:24px;letter-spacing:-.03em}.project p{margin:9px 0 0;color:#b9b9b9;line-height:1.45;font-size:14px}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.service{min-height:245px;border:1px solid var(--yellow-line);border-radius:28px;padding:28px;background:linear-gradient(145deg,rgba(244,196,0,.08),rgba(255,255,255,.025))}.service .num{color:var(--yellow);font-size:12px;letter-spacing:.18em;font-weight:900;margin-bottom:42px}.service h3{font-size:25px;margin:0 0 12px;letter-spacing:-.03em}.service p{color:#b5b5b5;line-height:1.55;margin:0}
+    .quality-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:26px;overflow:hidden;margin-top:34px}.quality-strip div{background:#070707;padding:22px;text-align:center;color:#ddd;font-weight:800}.quality-strip span{display:block;color:var(--yellow);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:7px}
+    .reviews{background:radial-gradient(circle at 20% 20%,rgba(244,196,0,.12),transparent 35%),#050505;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.review-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:stretch}.quote{border:1px solid var(--line);border-radius:30px;padding:34px;background:rgba(255,255,255,.035)}.stars{color:var(--yellow);letter-spacing:.08em;font-size:20px;margin-bottom:20px}.quote p{font-size:clamp(22px,3vw,38px);letter-spacing:-.04em;line-height:1.12;margin:0 0 24px}.quote small{color:#aaa}.stat-card{border:1px solid var(--yellow-line);border-radius:30px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;background:rgba(0,0,0,.32)}.stat-card strong{font-size:clamp(54px,7vw,92px);line-height:.9;color:var(--yellow)}.stat-card p{color:#bbb;font-size:18px;line-height:1.5}
+    .contact{text-align:center;background:linear-gradient(to bottom,#030303,#090909)}.contact h2{max-width:780px;margin:auto}.contact .sub{margin:18px auto 28px}.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+    footer{border-top:1px solid var(--line);padding:36px clamp(18px,4vw,46px);color:#8f8f8f;font-size:13px}.foot{width:min(var(--max),100%);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}.foot img{height:34px;width:auto;opacity:.95}.edit-note{margin-top:26px;padding:16px;border:1px dashed rgba(244,196,0,.35);border-radius:16px;color:#9a9a9a;font-size:13px;line-height:1.55}.edit-note strong{color:var(--yellow)}
+    @media(max-width:980px){.work-grid{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.quality-strip{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}.section-head{display:block}.section-head .sub{margin-top:16px}}
+    @media(max-width:760px){header{padding:14px 16px}.brand img{height:32px}.nav a:not(.lang){display:none}.nav{gap:0;font-size:11px}.hero{padding:108px 18px 64px}.hero-logo{width:min(350px,88vw);margin-bottom:22px}.lead{font-size:15px}.actions .btn{width:100%;max-width:280px}section{padding:70px 18px}.logo-row{grid-template-columns:1fr 1fr}.work-grid{grid-template-columns:1fr}.project{min-height:430px}.quality-strip{grid-template-columns:1fr}.foot{display:block;text-align:center}.foot img{margin-bottom:16px}.scroll{display:none}}
+  
+    .page-main{min-height:100svh;padding-top:88px}
+    .work-block + .work-block{margin-top:86px}
+    .back-home{margin-top:30px}
+
+  </style>
+</head>
+<body>
+<div class="page-noise"></div>
+<header>
+  <a class="brand" href="index.html" aria-label="YWM Home"><img src="assets/ywm-logo-transparent.png" alt="YWM Yellow World Media"></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a class="lang" href="#" aria-label="Language selector">🇬🇧 ENG | 🇨🇿 CZ | 🇩🇪 DE</a>
+  </nav>
+</header>
+<main class="page-main">
+  <section id="work">
+    <div class="wrap">
+      <div class="work-block">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Our Work</p>
+            <h2>Featured <span>Projects</span></h2>
+          </div>
+          <p class="sub">A curated showcase of videos, photography and advertising visuals created for real brands and businesses.</p>
+        </div>
+
+        <div class="work-grid">
+          <article class="project">
+            <img src="assets/garden.jpg" alt="Garden design project placeholder">
+            <div class="project-info">
+              <div class="project-type">Video · Photography</div>
+              <h3>Garden Design</h3>
+              <p>Visual content for outdoor living, atmosphere and brand storytelling.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <img src="assets/pergola_2.jpg" alt="Pergola builder project placeholder">
+            <div class="project-info">
+              <div class="project-type">Video · Architecture</div>
+              <h3>Pergola Builder</h3>
+              <p>Premium visuals for construction, lifestyle and exterior spaces.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <img src="assets/handbag_2.jpg" alt="Handbag brand project placeholder">
+            <div class="project-info">
+              <div class="project-type">Social Media · Product</div>
+              <h3>Handbag Brand</h3>
+              <p>Short-form product content designed for attention and style.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <img src="assets/tatoo_2.jpg" alt="Tattoo artist project placeholder">
+            <div class="project-info">
+              <div class="project-type">Video · Personal Brand</div>
+              <h3>Tattoo Artist</h3>
+              <p>Atmospheric visuals for detail, emotion and online presence.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="work-block">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Photography</p>
+            <h2>Our <span>Photography</span></h2>
+          </div>
+          <p class="sub">Professional photography for families, newborns, businesses and fine art projects.</p>
+        </div>
+
+        <div class="work-grid">
+          <a class="project" href="family.html">
+            <img src="assets/ywm_replacement_card.jpg" alt="Family Photography">
+            <div class="project-info">
+              <div class="project-type">Photography</div>
+              <h3>Family</h3>
+              <p>Natural family moments captured with warmth, emotion and authenticity.</p>
+            </div>
+          </a>
+
+          <a class="project" href="newborn.html">
+            <img src="assets/ywm_replacement_card.jpg" alt="Newborn Photography">
+            <div class="project-info">
+              <div class="project-type">Photography</div>
+              <h3>Newborn</h3>
+              <p>Beautiful memories of your child's first days and precious moments.</p>
+            </div>
+          </a>
+
+          <a class="project" href="brands.html">
+            <img src="assets/ywm_replacement_card.jpg" alt="Brand Photography">
+            <div class="project-info">
+              <div class="project-type">Photography</div>
+              <h3>Brands</h3>
+              <p>Professional imagery that strengthens your business and visual identity.</p>
+            </div>
+          </a>
+
+          <a class="project" href="fine-art.html">
+            <img src="assets/ywm_replacement_card.jpg" alt="Fine Art Photography">
+            <div class="project-info">
+              <div class="project-type">Photography</div>
+              <h3>Fine Art</h3>
+              <p>Artistic photography focused on storytelling, creativity and expression.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <img src="assets/ywm-logo-transparent.png" alt="YWM logo">
+    <div>© 2026 YWM — Yellow World Media · Video. Photography. Business Growth.</div>
+  </div>
+</footer>
+</body>
+</html>
