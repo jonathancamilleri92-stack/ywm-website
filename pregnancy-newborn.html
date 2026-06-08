@@ -1,3 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pregnancy & Newborn Photography | YWM</title>
+
+<style>
+body{
+  margin:0;
+  background:#030303;
+  color:white;
+  font-family:Arial,sans-serif;
+}
+
+.header{
+  padding:30px;
+  text-align:center;
+}
+
+.header h1{
+  margin:0;
+  color:#f4c400;
+}
+
+.back{
+  display:inline-block;
+  margin-top:15px;
+  color:#f4c400;
+  text-decoration:none;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  padding:30px;
+}
+
+.gallery img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:20px;
+  display:block;
+}
+
+.gallery img:hover{
+  transform:scale(1.02);
+  transition:.25s ease;
+}
+
+@media(max-width:768px){
+  .gallery{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Pregnancy &amp; Newborn</h1>
+  <a class="back" href="index.html#photography">← Back to Photography</a>
+</div>
+
 <div class="gallery">
   <img src="assets/pregnancy-newborn/ben1.jpg" alt="">
   <img src="assets/pregnancy-newborn/ben2.jpg" alt="">
@@ -19,3 +86,6 @@
   <img src="assets/pregnancy-newborn/y2.jpg" alt="">
   <img src="assets/pregnancy-newborn/y4.jpg" alt="">
 </div>
+
+</body>
+</html>
