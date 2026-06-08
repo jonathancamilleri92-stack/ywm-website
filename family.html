@@ -1,14 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Family Photography</title>
-</head>
-<body style="background:black;color:white;font-family:Arial;text-align:center;padding:50px;">
-    <h1>Family Photography</h1>
-    <p>This page works!</p>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Family Photography | YWM</title>
 
-    <a href="index.html" style="color:yellow;">
-        ← Back to Home
-    </a>
+<style>
+body{
+    margin:0;
+    background:#030303;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.header{
+    padding:30px;
+    text-align:center;
+}
+
+.header h1{
+    margin:0;
+    color:#f4c400;
+}
+
+.back{
+    display:inline-block;
+    margin-top:15px;
+    color:#f4c400;
+    text-decoration:none;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    padding:30px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:20px;
+    display:block;
+}
+
+@media(max-width:768px){
+    .gallery{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Family Photography</h1>
+    <a class="back" href="index.html">← Back to Home</a>
+</div>
+
+<div class="gallery">
+  <img src="assets/family/adelkids1.jpg" alt="">
+  <img src="assets/family/adelkids2.jpg" alt="">
+  <img src="assets/family/adelkids3.jpg" alt="">
+  <img src="assets/family/adelkids4.jpg" alt="">
+  <img src="assets/family/adelkids5.jpg" alt="">
+  <img src="assets/family/chic1.jpg" alt="">
+  <img src="assets/family/chic3.jpg" alt="">
+  <img src="assets/family/eth.jpg" alt="">
+  <img src="assets/family/kundrova.jpg" alt="">
+  <img src="assets/family/longhair.jpg" alt="">
+  <img src="assets/family/longhair2.jpg" alt="">
+</div>
+
 </body>
 </html>
