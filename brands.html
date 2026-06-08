@@ -1,55 +1,92 @@
-<div class="gallery">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brands Photography | YWM</title>
 
-  <img src="assets/brands/ANEKKE_PRG_1.jpg" alt="">
+<style>
+body{
+  margin:0;
+  background:#030303;
+  color:white;
+  font-family:Arial,sans-serif;
+}
 
-  <img src="assets/brands/ANEKKEKAOLIN.jpg" alt="">
+.header{
+  padding:30px;
+  text-align:center;
+}
 
-  <img src="assets/brands/ANEKKEKAOLIN2_1.jpg" alt="">
+.header h1{
+  margin:0;
+  color:#f4c400;
+}
 
-  <img src="assets/brands/ANEKKErakMa1.jpg" alt="">
+.back{
+  display:inline-block;
+  margin-top:15px;
+  color:#f4c400;
+  text-decoration:none;
+}
 
-  <img src="assets/brands/ANEKKErakMay2_1.jpg" alt="">
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  padding:30px;
+}
 
+.gallery img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:contain;
+  background:#111;
+  border-radius:20px;
+  display:block;
+}
 
+@media(max-width:768px){
+  .gallery{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
 
-  <img src="assets/brands/fv1.jpg" alt="">
+<body>
 
-  <img src="assets/brands/fv2.jpg" alt="">
-
-  <img src="assets/brands/fv3.jpg" alt="">
-
-  <img src="assets/brands/fv5.jpg" alt="">
-
-  <img src="assets/brands/fv34.jpg" alt="">
-
-
-
-  <img src="assets/brands/KM7_1.jpg" alt="">
-
-  <img src="assets/brands/KM8-1.jpg" alt="">
-
-  <img src="assets/brands/KM8-6.jpg" alt="">
-
-  <img src="assets/brands/KM8-12.jpg" alt="">
-
-  <img src="assets/brands/KM8-15.jpg" alt="">
-
-  <img src="assets/brands/KM8-40.jpg" alt="">
-
-  <img src="assets/brands/KM8-49_1.jpg" alt="">
-
-  <img src="assets/brands/KM8-63.jpg" alt="">
-
-  <img src="assets/brands/KM8-64.jpg" alt="">
-
-  <img src="assets/brands/KM8-68.jpg" alt="">
-
-  <img src="assets/brands/KM8-83.jpg" alt="">
-
-  <img src="assets/brands/KM8-85_1.jpg" alt="">
-
-  <img src="assets/brands/KM8-105.jpg" alt="">
-
-  <img src="assets/brands/KM8.jpg" alt="">
-
+<div class="header">
+  <h1>Brands</h1>
+  <a class="back" href="index.html#photography">← Back to Photography</a>
 </div>
+
+<div class="gallery">
+  <img src="assets/brands/ANEKKE_PRG_1.jpg" alt="">
+  <img src="assets/brands/ANEKKEKAOLIN.jpg" alt="">
+  <img src="assets/brands/ANEKKEKAOLIN2_1.jpg" alt="">
+  <img src="assets/brands/ANEKKErakMa1.jpg" alt="">
+  <img src="assets/brands/ANEKKErakMay2_1.jpg" alt="">
+  <img src="assets/brands/fv1.jpg" alt="">
+  <img src="assets/brands/fv2.jpg" alt="">
+  <img src="assets/brands/fv3.jpg" alt="">
+  <img src="assets/brands/fv5.jpg" alt="">
+  <img src="assets/brands/fv34.jpg" alt="">
+  <img src="assets/brands/KM7_1.jpg" alt="">
+  <img src="assets/brands/KM8-1.jpg" alt="">
+  <img src="assets/brands/KM8-6.jpg" alt="">
+  <img src="assets/brands/KM8-12.jpg" alt="">
+  <img src="assets/brands/KM8-15.jpg" alt="">
+  <img src="assets/brands/KM8-40.jpg" alt="">
+  <img src="assets/brands/KM8-49_1.jpg" alt="">
+  <img src="assets/brands/KM8-63.jpg" alt="">
+  <img src="assets/brands/KM8-64.jpg" alt="">
+  <img src="assets/brands/KM8-68.jpg" alt="">
+  <img src="assets/brands/KM8-83.jpg" alt="">
+  <img src="assets/brands/KM8-85_1.jpg" alt="">
+  <img src="assets/brands/KM8-105.jpg" alt="">
+  <img src="assets/brands/KM8.jpg" alt="">
+</div>
+
+</body>
+</html>
