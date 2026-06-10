@@ -26,12 +26,13 @@
     @media(max-width:980px){.work-grid{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.quality-strip{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}.section-head{display:block}.section-head .sub{margin-top:16px}}
     
     @media(max-width:760px){header{padding:14px 16px}.brand img{height:32px}.nav a:not(.lang){display:none}.nav{gap:0;font-size:11px}.hero{padding:108px 18px 64px}.hero-logo{width:min(350px,88vw);margin-bottom:22px}.lead{font-size:15px}.actions .btn{width:100%;max-width:280px}section{padding:70px 18px}.logo-row{grid-template-columns:1fr 1fr}.work-grid{grid-template-columns:1fr}.project{min-height:430px}.quality-strip{grid-template-columns:1fr}.foot{display:block;text-align:center}.foot img{margin-bottom:16px}.scroll{display:none}}
-.social-links{
+
+    .social-links{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:1px;
-  margin:0 0 15px 0;
+  gap:12px;
+  margin-left:20px;
 }
 
 .social-links a{
@@ -48,28 +49,21 @@
 .social-links img:hover{
   transform:translateY(-2px);
 }
+
+.header-socials{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 .header-socials{
   display:flex;
   align-items:center;
-  gap:1px;
-}
-
-.header-socials img{
-  width:20px;
-  height:20px;
-  object-fit:contain;
-  transition:.2s ease;
-  margin-left:20px;
-}
-
-.header-socials img:hover{
-  transform:translateY(-1px);
-}
-  .header-socials{
-  display:flex;
-  align-items:center;
-  gap:1px;
-  margin-left:10px;
+  gap:12px;
+  margin-left:auto;
+  margin-right:24px;
 }
 
 .header-socials img{
@@ -78,52 +72,43 @@
   display:block;
   opacity:0.9;
   transition:.2s ease;
-  margin-left:30px;
 }
 
 .header-socials img:hover{
   opacity:1;
   transform:translateY(-1px);
-  margin-left:20px;
-  
-  .header-socials{
-  position:absolute;
-  left:60%;
-  transform:translateX(-50%);
-  display:flex;
-  align-items:center;
-  gap:1px;
 }
   </style>
 </head>
 <body>
 <div class="page-noise"></div>
 <header>
-  <a class="brand" href="index.html" aria-label="YWM Home"><img src="assets/ywm-logo-transparent.png" alt="YWM Yellow World Media"></a><div class="header-socials">
-  <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
-    <img src="assets/sm_icons/fb.png" alt="Facebook">
+  <a class="brand" href="index.html" aria-label="YWM Home">
+    <img src="assets/ywm-logo-transparent.png" alt="YWM Yellow World Media">
   </a>
 
-  <a href="https://www.instagram.com/yellow_world_media/" target="_blank">
-    <img src="assets/sm_icons/insta.png" alt="Instagram">
-  </a>
-
-  <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
-    <img src="assets/sm_icons/yt.png" alt="YouTube">
-  </a>
-</div>
   <nav class="nav" aria-label="Main navigation">
+    <div class="header-socials">
+      <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
+        <img src="assets/sm_icons/fb.png" alt="Facebook">
+      </a>
+
+      <a href="https://www.instagram.com/yellow_world_media/" target="_blank">
+        <img src="assets/sm_icons/insta.png" alt="Instagram">
+      </a>
+
+      <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
+        <img src="assets/sm_icons/yt.png" alt="YouTube">
+      </a>
+    </div>
+
     <a href="index.html">Home</a>
     <a href="work.html">Work</a>
     <a href="services.html">Services</a>
-   <a href="contact.html">Contact</a>
+    <a href="contact.html">Contact</a>
 
-<div class="header-socials">
-
-</div>
-
-<a class="lang" href="index.html">🇬🇧 ENG</a>
-<a class="lang" href="#">🇨🇿 CZ</a> 
+    <a class="lang" href="index.html">🇬🇧 ENG</a>
+    <a class="lang" href="#">🇨🇿 CZ</a>
   </nav>
 </header>
 <main id="top">
