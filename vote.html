@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YWM | Fotografická soutěž</title>
+
+  <style>
+    :root{
+      --yellow:#f4c400;
+      --black:#030303;
+      --white:#fff;
+      --muted:#a8a8a8;
+      --line:rgba(255,255,255,.12);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      background:var(--black);
+      color:var(--white);
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:50;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px clamp(18px,4vw,46px);
+      background:rgba(0,0,0,.9);
+    }
+
+    .brand img{
+      height:42px;
+      width:auto;
+      display:block;
+    }
+
+    .nav{
+      display:flex;
+      gap:22px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .nav a:hover{
+      color:var(--yellow);
+    }
+
+    .lang{
+      color:var(--yellow);
+    }
+
+    .vote-page{
+      min-height:100vh;
+      padding:105px 20px 35px;
+      text-align:center;
+    }
+
+  .vote-page h1{
+  color:var(--yellow);
+  font-size:clamp(30px,4vw,48px);
+  margin:0 0 18px;
+}
+
+    .vote-page p{
+      max-width:760px;
+      margin:0 auto 10px;
+      font-size:15px;
+      line-height:1.45;
+    }
+
+    .gallery{
+  max-width:850px;
+  margin:25px auto 20px;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:14px;
+}
+
+    .photo-card{
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      background:#111;
+    }
+.photo-image{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  display:block;
+}
+
+   .photo-title{
+  padding:8px;
+  color:var(--yellow);
+  font-weight:700;
+  font-size:13px;
+}
+
+    .vote-button{
+  display:inline-block;
+  margin-top:10px;
+  background:var(--yellow);
+  color:#000;
+  padding:14px 36px;
+  font-weight:900;
+  text-decoration:none;
+  border-radius:999px;
+  letter-spacing:.12em;
+}
+.home-button{
+  display:inline-block;
+  margin-top:10px;
+  border:1px solid var(--yellow);
+  color:var(--yellow);
+  padding:14px 36px;
+  font-weight:700;
+  text-decoration:none;
+  border-radius:999px;
+  letter-spacing:.08em;
+}
+
+.home-button:hover{
+  background:var(--yellow);
+  color:#000;
+}
+    .vote-button:hover{
+      transform:translateY(-2px);
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:36px 20px;
+      color:#8f8f8f;
+      text-align:center;
+      font-size:13px;
+    }
+
+    footer img{
+      height:34px;
+      margin-bottom:16px;
+    }
+
+    @media(max-width:760px){
+      header{
+        padding:14px 16px;
+      }
+
+      .brand img{
+        height:32px;
+      }
+
+      .nav a:not(.lang){
+        display:none;
+      }
+
+      .vote-page{
+        padding-top:110px;
+      }
+
+      .vote-page p{
+        font-size:17px;
+      }
+    } 
+    .header-socials{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.header-socials{
+  position:absolute;
+  left:50%;
+  top: 80px;   /* adjust */
+  transform:translateX(-50%);
+  display:flex;
+  gap:25px;
+}
+.header-socials img{
+  width:20px;
+  height:20px;
+  object-fit:contain;
+  transition:.2s ease;
+  margin-left:20px;
+}
+
+.header-socials img:hover{
+  transform:translateY(-1px);
+}
+  .header-socials{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-left:10px;
+}
+
+.header-socials img{
+  width:18px;
+  height:18px;
+  display:block;
+  opacity:0.9;
+  transition:.2s ease;
+  margin-left:30px;
+}
+  </style>
+</head>
+<div class="header-socials">
+  <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
+    <img src="assets/sm_icons/fb.png" alt="Facebook">
+  </a>
+
+  <a href="https://www.instagram.com/yellowworldmedia/" target="_blank">
+    <img src="assets/sm_icons/insta.png" alt="Instagram">
+  </a>
+
+  <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
+    <img src="assets/sm_icons/yt.png" alt="YouTube">
+  </a>
+</div>
+<body>
+
+<header>
+  <a class="brand" href="index.html" aria-label="YWM Home">
+    <img src="assets/ywm-logo-transparent.png" alt="YWM Yellow World Media">
+  </a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a class="lang" href="index.html">🇬🇧 ENG</a>
+    <a class="lang" href="#">🇨🇿 CZ</a>
+  </nav>
+</header>
+
+<main>
+  <section class="vote-page">
+    <h1>Fotografická soutěž</h1>
+
+    <p>Děkujeme, že jste navštívili naši výstavu.</p>
+
+    <p>Prohlédněte si vystavené fotografie a hlasujte pro snímek, který vás nejvíce zaujal. Vaším hlasem pomůžete vybrat fotografii, která získá ocenění návštěvníků výstavy.</p>
+
+    <p>Každý hlasující je zároveň automaticky zařazen do slosování o fotografické focení zdarma včetně tří profesionálně upravených fotografií.</p>
+
+    <p>Po skončení výstavy bude vyhlášena nejoblíbenější fotografie a zároveň bude ze všech hlasujících vylosován jeden výherce fotografického focení.</p>
+
+   <div class="gallery">
+
+  <div class="photo-card">
+    <img src="assets/exhibition/ThEthMay.jpg" alt="Pohled snílka" class="photo-image">
+    <div class="photo-title">Pohled snílka</div>
+  </div>
+
+  <div class="photo-card">
+    <img src="assets/exhibition/PIVINDASELFPORTRAIT_1.jpg" alt="Pouto" class="photo-image">
+    <div class="photo-title">Pouto</div>
+  </div>
+
+  <div class="photo-card">
+    <img src="assets/exhibition/NANNANANNUETHCICKK25.jpg" alt="Generace" class="photo-image">
+    <div class="photo-title">Generace</div>
+  </div>
+
+  <div class="photo-card">
+    <img src="assets/exhibition/ANICKATIME.jpg" alt="Když se zastaví čas" class="photo-image">
+    <div class="photo-title">Když se zastaví čas</div>
+  </div>
+
+  <div class="photo-card">
+    <img src="assets/exhibition/ANICERf.1FN_1.jpg" alt="Podzimní šepot" class="photo-image">
+    <div class="photo-title">Podzimní šepot</div>
+  </div>
+
+  <div class="photo-card">
+    <img src="assets/exhibition/ADEAME26.2.jpg" alt="Malý zázrak" class="photo-image">
+    <div class="photo-title">Malý zázrak</div>
+  </div>
+
+ <div class="photo-card">
+    <img src="assets/exhibition/jajaforaut1.mint_1.jpg" alt="Královna podzimu" class="photo-image">
+    <div class="photo-title">Královna podzimu</div>
+  </div>
+</div>
+
+    <a class="vote-button" href="https://forms.gle/66EBNN8M5fiKCLCW8" target="_blank">
+  HLASOVAT
+</a>
+
+<br><br>
+
+<a class="home-button" href="index.html">
+  ZPĚT NA HLAVNÍ STRÁNKU
+</a>
+ 
+  </section>
+</main>
+
+<footer>
+  <img src="assets/ywm-logo-transparent.png" alt="YWM logo">
+  <div>© 2026 YWM — Yellow World Media · Video. Photography. Business Growth.</div>
+</footer>
+
+</body>
+</html>

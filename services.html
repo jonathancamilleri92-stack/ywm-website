@@ -29,19 +29,69 @@
     .page-main{min-height:100svh;padding-top:88px}
     .work-block + .work-block{margin-top:86px}
     .back-home{margin-top:30px}
+.header-socials{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 
+.header-socials img{
+  width:20px;
+  height:20px;
+  object-fit:contain;
+  transition:.2s ease;
+  margin-left:20px;
+}
+
+.header-socials img:hover{
+  transform:translateY(-1px);
+}
+  .header-socials{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-left:10px;
+}
+
+.header-socials img{
+  width:18px;
+  height:18px;
+  display:block;
+  opacity:0.9;
+  transition:.2s ease;
+  margin-left:30px;
+}
   </style>
 </head>
 <body>
+  
 <div class="page-noise"></div>
 <header>
-  <a class="brand" href="index.html" aria-label="YWM Home"><img src="assets/ywm-logo-transparent.png" alt="YWM Yellow World Media"></a>
+  <a class="brand" href="index.html" aria-label="YWM Home"><img src="assets/ywm-logo-transparent.png" alt="YWM Yellow World Media"></a><div class="header-socials">
+  <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
+    <img src="assets/sm_icons/fb.png" alt="Facebook">
+  </a>
+
+  <a href="https://www.instagram.com/yellowworldmedia/" target="_blank">
+    <img src="assets/sm_icons/insta.png" alt="Instagram">
+  </a>
+
+  <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
+    <img src="assets/sm_icons/yt.png" alt="YouTube">
+  </a>
+</div>
   <nav class="nav" aria-label="Main navigation">
     <a href="index.html">Home</a>
     <a href="work.html">Work</a>
     <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a class="lang" href="#" aria-label="Language selector">🇬🇧 ENG | 🇨🇿 CZ | 🇩🇪 DE</a>
+   <a href="contact.html">Contact</a>
+
+<div class="header-socials">
+
+</div>
+
+<a class="lang" href="index.html">🇬🇧 ENG</a>
+<a class="lang" href="#">🇨🇿 CZ</a> 
   </nav>
 </header>
 <main class="page-main">
