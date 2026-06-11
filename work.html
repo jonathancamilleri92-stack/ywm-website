@@ -94,6 +94,39 @@ transform:scale(1.04);
   opacity:1;
   transform:translateY(-1px);
 }
+.project {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-thumb,
+.project-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease, opacity .25s ease;
+}
+
+.project-thumb {
+  z-index: 0;
+}
+
+.project-video {
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project.video-loaded .project-video {
+  opacity: 1;
+}
+
+.project-info {
+  position: relative;
+  z-index: 2;
+}
   </style>
 </head>
 <body>
@@ -113,17 +146,17 @@ transform:scale(1.04);
   </a>
 </div>
   <nav class="nav" aria-label="Main navigation">
-    <a href="index.html">Home</a>
-    <a href="work.html">Work</a>
-    <a href="services.html">Services</a>
-   <a href="contact.html">Contact</a>
+  <a href="index.html" data-en="Home" data-cz="Domů">Home</a>
+<a href="work.html" data-en="Work" data-cz="Portfolio">Work</a>
+<a href="services.html" data-en="Services" data-cz="Služby">Services</a>
+<a href="contact.html" data-en="Contact" data-cz="Kontakt">Contact</a>
 
 <div class="header-socials">
 
 </div>
 
-<a class="lang" href="index.html">🇬🇧 ENG</a>
-<a class="lang" href="#">🇨🇿 CZ</a> 
+<a class="lang" href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
+<a class="lang" href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
   </nav>
 </header>
 <main class="page-main">
@@ -132,59 +165,127 @@ transform:scale(1.04);
       <div class="work-block">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Our Work</p>
-            <h2>Featured <span>Projects</span></h2>
+            <p class="eyebrow"
+   data-en="Our Work"
+   data-cz="Naše práce">
+   Our Work
+</p>
+            <h2 id="featured-projects-title">
+  Featured <span>Projects</span>
+</h2>
           </div>
-          <p class="sub">A curated showcase of videos, photography and advertising visuals created for real brands and businesses.</p>
-        </div>
+        <p class="sub"
+   data-en="A curated showcase of videos, photography and advertising visuals created for real brands and businesses."
+   data-cz="Výběr videí, fotografií a reklamních vizuálů vytvořených pro skutečné značky a firmy.">
+A curated showcase of videos, photography and advertising visuals created for real brands and businesses.
+</p>
+</div>
+
 <div class="work-grid">
 
-<a class="project" href="pergola-builder.html">
+<a class="project video-project" href="pergola-builder.html">
+  <img class="project-thumb" src="assets/videoThumbnails/0-pergola.jpg" alt="Outdoor Elegance project thumbnail" loading="lazy">
 
-      <video autoplay muted loop playsinline>
-    <source src="assets/videoThumbnails/THMB_pergola.mp4" type="video/mp4">
-  </video>
-    <div class="project-info">
-      <div class="project-type">Video · Architecture</div>
-      <h3>Outdoor Elegance</h3>
-      <p>Premium visuals for construction, lifestyle and exterior spaces.</p>
-    </div>
-
-</a>
- <a class="project" href="handbag-brand.html">
-    <video autoplay muted loop playsinline>
-    <source src="assets/videoThumbnails/THMB_handbag.mp4" type="video/mp4">
-  </video>
-    <div class="project-info">
-      <div class="project-type">Social Media · Product</div>
-      <h3>Luxury Bags & Accessories</h3>
-      <p>Short-form product content designed for attention and style.</p>
-    </div>
-  </a>
- <a class="project" href="garden-design.html">
-
-  <video autoplay muted loop playsinline>
-    <source src="assets/videoThumbnails/THMB_garden.mp4" type="video/mp4">
+  <video muted playsinline preload="none" class="project-video">
+    <source data-src="assets/videoThumbnails/THMB_pergola.mp4" type="video/mp4">
   </video>
 
   <div class="project-info">
-    <div class="project-type">Video · Photography</div>
-    <h3>Landscape Excellence</h3>
-    <p>Showcasing exceptional landscaping and natural pool design.</p>
+    <div class="project-type"
+     data-en="Video · Architecture"
+     data-cz="Video · Architektura">
+  Video · Architecture
+</div>
+    <h3
+  data-en="Outdoor Elegance"
+  data-cz="Venkovní elegance">
+  Outdoor Elegance
+</h3>
+    <p
+  data-en="Premium visuals for construction, lifestyle and exterior spaces."
+  data-cz="Prémiální vizuální obsah pro stavebnictví, životní styl a venkovní prostory.">
+  Premium visuals for construction, lifestyle and exterior spaces.
+</p>
   </div>
-
 </a>
-    
-    <a class="project" href="tattoo-artist.html">
-    <video autoplay muted loop playsinline>
-    <source src="assets/videoThumbnails/THMB_tatoos.mp4" type="video/mp4">
+
+<a class="project video-project" href="handbag-brand.html">
+  <img class="project-thumb" src="assets/videoThumbnails/0-handbag.jpg" alt="Luxury Bags & Accessories project thumbnail" loading="lazy">
+
+  <video muted playsinline preload="none" class="project-video">
+    <source data-src="assets/videoThumbnails/THMB_handbag.mp4" type="video/mp4">
   </video>
-    <div class="project-info">
-      <div class="project-type">Video · Personal Brand</div>
-      <h3>Tattoo Artist</h3>
-      <p>Artistic Content for Social Media.</p>
-    </div>
-  </a>
+
+  <div class="project-info">
+    <div class="project-type"
+     data-en="Social Media · Product"
+     data-cz="Sociální sítě · Produkt">
+  Social Media · Product
+</div>
+    <h3
+  data-en="Luxury Bags & Accessories"
+  data-cz="Luxusní tašky a doplňky">
+  Luxury Bags & Accessories
+</h3>
+    <p
+  data-en="Short-form product content designed for attention and style."
+  data-cz="Krátký formát produktového obsahu navrženého pro pozornost a styl.">
+  Short-form product content designed for attention and style.
+</p>
+  </div>
+</a>
+
+<a class="project video-project" href="garden-design.html">
+  <img class="project-thumb" src="assets/videoThumbnails/0-garden.jpg" alt="Landscape Excellence project thumbnail" loading="lazy">
+
+  <video muted playsinline preload="none" class="project-video">
+    <source data-src="assets/videoThumbnails/THMB_garden.mp4" type="video/mp4">
+  </video>
+
+  <div class="project-info">
+    <div class="project-type"
+     data-en="Video · Photography"
+     data-cz="Video · Fotografie">
+  Video · Photography
+</div>
+    <h3
+  data-en="Landscape Excellence"
+  data-cz="Výjimečná krajina">
+  Landscape Excellence
+</h3>
+    <p
+  data-en="Showcasing exceptional landscaping and natural pool design."
+  data-cz="Prezentace výjimečného krajiny a přírodního bazénu.">
+  Showcasing exceptional landscaping and natural pool design.
+</p>
+  </div>
+</a>
+
+<a class="project video-project" href="tattoo-artist.html">
+  <img class="project-thumb" src="assets/videoThumbnails/0-tatoo.jpg" alt="Tattoo Artist project thumbnail" loading="lazy">
+
+  <video muted playsinline preload="none" class="project-video">
+    <source data-src="assets/videoThumbnails/THMB_tatoos.mp4" type="video/mp4">
+  </video>
+
+  <div class="project-info">
+    <div class="project-type"
+     data-en="Video · Personal Brand"
+     data-cz="Video · Osobní značka">
+  Video · Personal Brand
+</div>
+    <h3
+  data-en="Tattoo Artist"
+  data-cz="Tattoo umělec">
+  Tattoo Artist
+</h3>
+    <p
+  data-en="Artistic Content for Social Media."
+  data-cz="Umělecký obsah pro sociální sítě.">
+  Artistic Content for Social Media.
+</p>
+  </div>
+</a>
 
 </div>
       </div>
@@ -192,41 +293,85 @@ transform:scale(1.04);
       <div class="work-block">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Photography</p>
-            <h2>Our <span>Photography</span></h2>
+           <p class="eyebrow"
+   data-en="Photography"
+   data-cz="Fotografie">
+Photography
+</p>
+          <h2 id="photography-title"
+   data-en="Our <span>Photography</span>"
+   data-cz="Naše <span>fotografie</span>">
+Our <span>Photography</span>
+</h2>
           </div>
-          <p class="sub">Professional photography for families, newborns, businesses and fine art projects.</p>
+          <p class="sub"
+   data-en="Professional photography for families, newborns, businesses and fine art projects."
+   data-cz="Profesionální fotografie pro rodiny, novorozence, firmy a umělecké projekty.">
+Professional photography for families, newborns, businesses and fine art projects.
+</p>
         </div>
 
         <div class="work-grid">
           <a class="project" href="family.html">
             <img src="assets/PhotoThumbnails/THMB_fam.jpg" alt="Family Photography">
             <div class="project-info">
-              <h3>Family</h3>
-              <p>Natural family moments captured with warmth, emotion and authenticity.</p>
+              <h3
+  data-en="Family"
+  data-cz="Rodina">
+  Family
+</h3>
+              <p
+  data-en="Natural family moments captured with warmth, emotion and authenticity."
+  data-cz="Přirozené rodinné okamžiky zachycené s teplem, emocí a autenticitou.">
+  Natural family moments captured with warmth, emotion and authenticity.
+</p>
             </div>
           </a>
           <a class="project" href="pregnancy-newborn.html">
             <img src="assets/PhotoThumbnails/THMB_preg.jpg" alt="Pregnancy & Newborn Photography">
             <div class="project-info">
-              <h3>Pregnancy &amp; Newborn</h3>
-             <p>Capturing the beauty of pregnancy and the first precious moments of your newborn's life.</p>
+              <h3
+  data-en="Pregnancy & Newborn"
+  data-cz="Těhotenství a novorozence">
+  Pregnancy & Newborn
+</h3>
+             <p
+  data-en="Capturing the beauty of pregnancy and the first precious moments of your newborn's life."
+  data-cz="Zachycování krásy těhotenství a prvních cenných okamžiků života vašeho novorozence.">
+  Capturing the beauty of pregnancy and the first precious moments of your newborn's life.
+</p>
             </div>
           </a>
 
           <a class="project" href="brands.html">
             <img src="assets/PhotoThumbnails/THMB_brands.jpg" alt="Brand Photography">
             <div class="project-info">
-              <h3>Brands</h3>
-              <p>Professional imagery that strengthens your business and visual identity.</p>
+              <h3
+  data-en="Brands"
+  data-cz="Značky">
+  Brands
+</h3>
+              <p
+  data-en="Professional imagery that strengthens your business and visual identity."
+  data-cz="Profesionální obrazy, které posilují vaši firmu a vizuální identitu.">
+  Professional imagery that strengthens your business and visual identity.
+</p>
             </div>
           </a>
 
           <a class="project" href="fine-art.html">
             <img src="assets/PhotoThumbnails/THMB_fineart.jpg" alt="Fine Art Photography">
             <div class="project-info">
-              <h3>Fine Art</h3>
-              <p>Artistic photography focused on storytelling, creativity and expression.</p>
+              <h3
+  data-en="Fine Art"
+  data-cz="Fine Art">
+  Fine Art
+</h3>
+              <p
+  data-en="Artistic photography focused on storytelling, creativity and expression."
+  data-cz="Umělecká fotografie zaměřená na příběh, kreativitu a výraz.">
+  Artistic photography focused on storytelling, creativity and expression.
+</p>
             </div>
           </a>
         </div>
@@ -241,5 +386,69 @@ transform:scale(1.04);
     <div>© 2026 YWM — Yellow World Media · Video. Photography. Business Growth.</div>
   </div>
 </footer>
+<script>
+document.querySelectorAll('.video-project').forEach((card) => {
+  const video = card.querySelector('.project-video');
+  const source = video.querySelector('source');
+
+  function loadVideo() {
+    if (!source.src) {
+      source.src = source.dataset.src;
+      video.load();
+    }
+
+    card.classList.add('video-loaded');
+    video.play().catch(() => {});
+  }
+
+  function pauseVideo() {
+    video.pause();
+  }
+
+  function restartAtEnd() {
+    video.currentTime = 0;
+    video.pause();
+  }
+
+  card.addEventListener('mouseenter', loadVideo);
+  card.addEventListener('mouseleave', pauseVideo);
+
+  video.addEventListener('ended', restartAtEnd);
+});
+</script><script>
+const translations = {
+  en: {
+    featuredProjectsTitle: 'Featured <span>Projects</span>',
+    photographyTitle: 'Our <span>Photography</span>'
+  },
+  cz: {
+    featuredProjectsTitle: 'Vybrané <span>projekty</span>',
+    photographyTitle: 'Naše <span>fotografie</span>'
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll('[data-en][data-cz]').forEach((el) => {
+    el.textContent = el.dataset[lang];
+  });
+
+  const featuredTitle = document.getElementById('featured-projects-title');
+  if (featuredTitle) {
+    featuredTitle.innerHTML = translations[lang].featuredProjectsTitle;
+  }
+
+  const photographyTitle = document.getElementById('photography-title');
+  if (photographyTitle) {
+    photographyTitle.innerHTML = translations[lang].photographyTitle;
+  }
+
+  localStorage.setItem('ywm-language', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('ywm-language') || 'en';
+  setLanguage(savedLanguage);
+});
+</script>
 </body>
 </html>

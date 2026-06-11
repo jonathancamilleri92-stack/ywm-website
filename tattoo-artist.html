@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landscape Excellence | YWM</title>
+<title>Independent Tattoo Artist | YWM</title>
 
 <style>
 :root{
@@ -137,14 +137,41 @@ footer{
     <img src="assets/ywm-logo-transparent.png" class="logo" alt="YWM">
   </a>
 
-  <a href="work.html" class="back-btn">
-    ← Back to Work
-  </a>
+  <div style="display:flex;align-items:center;gap:20px;">
+
+    <a href="work.html" class="back-btn"
+       data-en="← Back to Work"
+       data-cz="← Zpět na portfolio">
+      ← Back to Work
+    </a>
+
+    <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
+      <img src="assets/sm_icons/fb.png" alt="Facebook" style="width:18px;height:18px;">
+    </a>
+
+    <a href="https://www.instagram.com/yellow_world_media/" target="_blank">
+      <img src="assets/sm_icons/insta.png" alt="Instagram" style="width:18px;height:18px;">
+    </a>
+
+    <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
+      <img src="assets/sm_icons/yt.png" alt="YouTube" style="width:18px;height:18px;">
+    </a>
+
+    <a href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
+    <a href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
+
+  </div>
 </header>
 
 <section class="hero">
-  <h1>Independent Tattoo Artist</h1>
-  <p>
+  <h1
+    data-en="Independent Tattoo Artist"
+    data-cz="Nezávislý tattoo umělec">
+    Independent Tattoo Artist
+  </h1>
+  <p
+    data-en="Artistic Content for Social Media."
+    data-cz="Umělecký obsah pro sociální sítě.">
     Artistic Content for Social Media.
   </p>
 </section>
@@ -159,7 +186,11 @@ footer{
       </video>
       <div class="video-info">
         <h3>Zulla Tattoo</h3>
-        <p>Zombie Project</p>
+        <p
+          data-en="Zombie Project"
+          data-cz="Projekt Zombie">
+          Zombie Project
+        </p>
       </div>
     </div>
 
@@ -169,7 +200,11 @@ footer{
       </video>
       <div class="video-info">
         <h3>Zulla Tattoo</h3>
-        <p>Heaven & Hell Project</p>
+        <p
+          data-en="Heaven & Hell Project"
+          data-cz="Projekt Nebe & Peklo">
+          Heaven & Hell Project
+        </p>
       </div>
     </div>
 
@@ -180,6 +215,19 @@ footer{
 <footer>
   © 2026 YWM — Yellow World Media
 </footer>
+<script>
+function setLanguage(lang) {
+  document.querySelectorAll('[data-en][data-cz]').forEach((el) => {
+    el.textContent = el.dataset[lang];
+  });
 
+  localStorage.setItem('ywm-language', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('ywm-language') || 'en';
+  setLanguage(savedLanguage);
+});
+</script>
 </body>
 </html>

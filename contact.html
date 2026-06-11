@@ -110,21 +110,34 @@
 
 </div>
 
-<a class="lang" href="index.html">🇬🇧 ENG</a>
-<a class="lang" href="#">🇨🇿 CZ</a> 
+<a class="lang" href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
+<a class="lang" href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
   </nav>
 </header>
 <main class="page-main">
   <section id="contact" class="contact">
     <div class="wrap">
-      <h2>Ready to <span>Elevate</span> Your Brand?</h2>
-      <p class="sub">Tell us about your business and the content you need. Project-based quotes and monthly content options available on request.</p>
+      <h2 id="contact-title">
+  Ready to <span>Elevate</span> Your Brand?
+</h2>
+     <p class="sub"
+   data-en="Tell us about your business and the content you need. Project-based quotes and monthly content options available on request."
+   data-cz="Řekněte nám o svém podnikání a obsahu, který potřebujete. Nabízíme individuální cenové nabídky i měsíční balíčky obsahu.">
+   Tell us about your business and the content you need. Project-based quotes and monthly content options available on request.
+</p>
 
       <div class="contact-links">
         <a class="btn primary" href="mailto:info@ywm.cz">info@ywm.cz</a>
         <a class="btn" href="tel:+420733480808">+420 733 480 808</a>
         <a class="btn" href="tel:+420703635996">+420 703 635 996</a>
-        <a class="btn" href="https://www.facebook.com/yellowworldmedia" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn"
+   href="https://www.facebook.com/yellowworldmedia"
+   target="_blank"
+   rel="noopener"
+   data-en="Facebook"
+   data-cz="Facebook">
+   Facebook
+</a>
       </div>
     </div>
   </section>
@@ -136,5 +149,34 @@
     <div>© 2026 YWM — Yellow World Media · Video. Photography. Business Growth.</div>
   </div>
 </footer>
+<script>
+const translations = {
+  en: {
+    contactTitle: 'Ready to <span>Elevate</span> Your Brand?'
+  },
+  cz: {
+    contactTitle: 'Jste připraveni <span>posunout</span> svou značku dál?'
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll('[data-en][data-cz]').forEach((el) => {
+    el.textContent = el.dataset[lang];
+  });
+
+  const contactTitle = document.getElementById('contact-title');
+
+  if (contactTitle) {
+    contactTitle.innerHTML = translations[lang].contactTitle;
+  }
+
+  localStorage.setItem('ywm-language', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('ywm-language') || 'en';
+  setLanguage(savedLanguage);
+});
+</script>
 </body>
 </html>

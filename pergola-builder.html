@@ -131,22 +131,47 @@ footer{
 </head>
 
 <body>
-
 <header>
   <a href="index.html">
     <img src="assets/ywm-logo-transparent.png" class="logo" alt="YWM">
   </a>
 
-  <a href="work.html" class="back-btn">
+ <div style="display:flex;align-items:center;gap:20px;">
+
+  <a href="work.html" class="back-btn"
+     data-en="← Back to Work"
+     data-cz="← Zpět na portfolio">
     ← Back to Work
   </a>
-</header>
 
+  <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
+    <img src="assets/sm_icons/fb.png" alt="Facebook" style="width:18px;height:18px;">
+  </a>
+
+  <a href="https://www.instagram.com/yellow_world_media/" target="_blank">
+    <img src="assets/sm_icons/insta.png" alt="Instagram" style="width:18px;height:18px;">
+  </a>
+
+  <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
+    <img src="assets/sm_icons/yt.png" alt="YouTube" style="width:18px;height:18px;">
+  </a>
+
+  <a href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
+  <a href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
+
+</div>
+</header>
 <section class="hero">
-  <h1>Crafted Outdoor Elegance</h1>
-  <p>
-    Bringing outdoor spaces to life through cinematic storytelling.
-  </p>
+  <h1
+   data-en="Crafted Outdoor Elegance"
+   data-cz="Ručně vytvořená venkovní elegance">
+  Crafted Outdoor Elegance
+</h1>
+  <p
+   data-en="Bringing outdoor spaces to life through cinematic storytelling."
+   data-cz="Oživujeme venkovní prostory prostřednictvím filmového vyprávění.">
+  Bringing outdoor spaces to life through cinematic storytelling.
+</p>
 </section>
 
 <div class="container">
@@ -158,8 +183,16 @@ footer{
         <source src="assets/pergola-builder/fr_gazebo_1.mp4" type="video/mp4">
       </video>
       <div class="video-info">
-        <h3>Kutil Mike</h3>
-        <p>Řevničov Project</p>
+        <h3
+   data-en="Kutil Mike"
+   data-cz="Kutil Mike">
+  Kutil Mike
+</h3>
+        <p
+   data-en="Řevničov Project"
+   data-cz="Projekt Řevničov">
+  Řevničov Project
+</p>
       </div>
     </div>
 
@@ -168,8 +201,16 @@ footer{
         <source src="assets/pergola-builder/16x9_Kutil Mike -Pergola Smecno26.04_D4.mp4" type="video/mp4">
       </video>
       <div class="video-info">
-        <h3>Kutil Mike</h3>
-        <p>Smečno Project</p>
+        <h3
+   data-en="Kutil Mike"
+   data-cz="Kutil Mike">
+  Kutil Mike
+</h3>
+        <p
+   data-en="Smečno Project"
+   data-cz="Projekt Smečno">
+  Smečno Project
+</p>
       </div>
     </div>
      <div class="video-card">
@@ -177,8 +218,16 @@ footer{
         <source src="assets/pergola-builder/Kutil Mike -Pergola Smecno - Pop2.mp4" type="video/mp4">
       </video>
       <div class="video-info">
-        <h3>Kutil Mike</h3>
-        <p>Smečno Project</p>
+        <h3
+   data-en="Kutil Mike"
+   data-cz="Kutil Mike">
+  Kutil Mike
+</h3>
+        <p
+   data-en="Smečno Project"
+   data-cz="Projekt Smečno">
+  Smečno Project
+</p>
       </div>
     </div>
      <div class="video-card">
@@ -186,8 +235,16 @@ footer{
         <source src="assets/pergola-builder/MLUVICI_Kutil Mike -Pergola Smecno26.04_D2.mp4" type="video/mp4">
       </video>
       <div class="video-info">
-        <h3>Kutil Mike</h3>
-        <p>Smečno Project</p>
+        <h3
+   data-en="Kutil Mike"
+   data-cz="Kutil Mike">
+  Kutil Mike
+  </h3>
+        <p
+   data-en="Smečno Project"
+   data-cz="Projekt Smečno">
+  Smečno Project
+</p>
       </div>
     </div>
 
@@ -198,6 +255,21 @@ footer{
 <footer>
   © 2026 YWM — Yellow World Media
 </footer>
+<script>
+function setLanguage(lang) {
+  document.querySelectorAll('[data-en][data-cz]').forEach((el) => {
+    el.textContent = el.dataset[lang];
+  });
 
+  localStorage.setItem('ywm-language', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('ywm-language') || 'en';
+  setLanguage(savedLanguage);
+});
+</script>
 </body>
+
+
 </html>

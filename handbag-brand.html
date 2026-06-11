@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landscape Excellence | YWM</title>
+<title>Luxury Bags & Accessories | YWM</title>
 
 <style>
 :root{
@@ -127,6 +127,18 @@ footer{
     grid-template-columns:1fr;
   }
 }
+.lang-btn{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.lang-btn:hover{
+  color:#f4c400;
+}
 </style>
 </head>
 
@@ -137,16 +149,44 @@ footer{
     <img src="assets/ywm-logo-transparent.png" class="logo" alt="YWM">
   </a>
 
-  <a href="work.html" class="back-btn">
-    ← Back to Work
-  </a>
+  <div style="display:flex;align-items:center;gap:20px;">
+
+    <a href="work.html" class="back-btn"
+       data-en="← Back to Work"
+       data-cz="← Zpět na portfolio">
+      ← Back to Work
+    </a>
+
+    <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
+      <img src="assets/sm_icons/fb.png" alt="Facebook" style="width:18px;height:18px;">
+    </a>
+
+    <a href="https://www.instagram.com/yellow_world_media/" target="_blank">
+      <img src="assets/sm_icons/insta.png" alt="Instagram" style="width:18px;height:18px;">
+    </a>
+
+    <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
+      <img src="assets/sm_icons/yt.png" alt="YouTube" style="width:18px;height:18px;">
+    </a>
+
+    <a class="lang-btn" href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
+<a class="lang-btn" href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
+
+  </div>
 </header>
 
 <section class="hero">
-  <h1>Luxury Bags & Accessories</h1>
-  <p>
-    Short-form product content designed for attention and style.
-  </p>
+<h1
+  data-en="Luxury Bags & Accessories"
+  data-cz="Luxusní kabelky a doplňky">
+  Luxury Bags & Accessories
+</h1>
+
+<p
+  data-en="Short-form product content designed for attention and style."
+  data-cz="Krátká produktová videa vytvořená pro maximální pozornost a styl.">
+  Short-form product content designed for attention and style.
+</p>
 </section>
 
 <div class="container">
@@ -159,27 +199,39 @@ footer{
       </video>
       <div class="video-info">
         <h3>Anekke</h3>
-        <p>Rakovnik Project</p>
+<p
+  data-en="Rakovnik Project"
+  data-cz="Projekt Rakovník">
+  Rakovnik Project
+</p>
       </div>
     </div>
 
         <div class="video-card">
       <video controls playsinline>
-        <source src="assets/handbag-brand/SS25-ANEKKE PRAHA.mp4"type="video/mp4">
+        <source src="assets/handbag-brand/SS25-ANEKKE PRAHA.mp4" type="video/mp4">
       </video>
       <div class="video-info">
         <h3>Anekke</h3>
-        <p>Prague Project</p>
+        <p
+  data-en="Prague Project"
+  data-cz="Projekt Praha">
+  Prague Project
+        </p>
       </div>
     </div>
     
  <div class="video-card">
       <video controls playsinline>
-        <source src="assets/handbag-brand/SS25-ANEKKE_KAOLIN.mp4"type="video/mp4">
+        <source src="assets/handbag-brand/SS25-ANEKKE_KAOLIN.mp4" type="video/mp4">
       </video>
       <div class="video-info">
         <h3>Anekke</h3>
-        <p>Prague Project</p>
+        <p
+  data-en="Kaolin Project"
+  data-cz="Projekt Kaolin">
+  Kaolin Project
+        </p>
       </div>
     </div>
   </div>
@@ -189,6 +241,19 @@ footer{
 <footer>
   © 2026 YWM — Yellow World Media
 </footer>
+<script>
+function setLanguage(lang) {
+  document.querySelectorAll('[data-en][data-cz]').forEach((el) => {
+    el.textContent = el.dataset[lang];
+  });
 
+  localStorage.setItem('ywm-language', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('ywm-language') || 'en';
+  setLanguage(savedLanguage);
+});
+</script>
 </body>
 </html>

@@ -137,15 +137,41 @@ footer{
     <img src="assets/ywm-logo-transparent.png" class="logo" alt="YWM">
   </a>
 
-  <a href="work.html" class="back-btn">
-    ← Back to Work
-  </a>
+  <div style="display:flex;align-items:center;gap:20px;">
+
+    <a href="work.html" class="back-btn"
+       data-en="← Back to Work"
+       data-cz="← Zpět na portfolio">
+      ← Back to Work
+    </a>
+
+    <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
+      <img src="assets/sm_icons/fb.png" alt="Facebook" style="width:18px;height:18px;">
+    </a>
+
+    <a href="https://www.instagram.com/yellow_world_media/" target="_blank">
+      <img src="assets/sm_icons/insta.png" alt="Instagram" style="width:18px;height:18px;">
+    </a>
+
+    <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
+      <img src="assets/sm_icons/yt.png" alt="YouTube" style="width:18px;height:18px;">
+    </a>
+
+    <a href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
+    <a href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
+
+  </div>
 </header>
 
 <section class="hero">
-  <h1>Landscape Excellence</h1>
-  <p>
-    Visual storytelling for premium landscaping projects.
+  <h1
+    data-en="Landscape Excellence"
+    data-cz="Výjimečná krajina">
+    Landscape Excellence
+  </h1>
+  <p
+    data-en="Visual storytelling for premium landscaping projects."
+    data-cz="Vizualizace pro prémiové projektové krajiny.">
   </p>
 </section>
 
@@ -159,7 +185,11 @@ footer{
       </video>
       <div class="video-info">
         <h3>Zahradní centrum Běloušek</h3>
-        <p>Rakovnik Project</p>
+        <p
+          data-en="Rakovnik Project"
+          data-cz="Projekt Rakovník">
+          Rakovnik Project
+        </p>
       </div>
     </div>
     
@@ -169,7 +199,11 @@ footer{
       </video>
       <div class="video-info">
         <h3>Zahradní centrum Běloušek</h3>
-        <p>Ruda Garden Shop Project</p>
+        <p
+          data-en="Ruda Garden Shop Project"
+          data-cz="Projekt Ruda Garden Shop">
+          Ruda Garden Shop Project
+        </p>
       </div>
     </div>
 
@@ -179,7 +213,11 @@ footer{
       </video>
       <div class="video-info">
         <h3>Zahradní centrum Běloušek</h3>
-        <p>Chraštány Project</p>
+        <p
+          data-en="Chraštány Project"
+          data-cz="Projekt Chraštány">
+          Chraštány Project
+        </p>
       </div>
     </div>
 
@@ -190,6 +228,19 @@ footer{
 <footer>
   © 2026 YWM — Yellow World Media
 </footer>
+<script>
+function setLanguage(lang) {
+  document.querySelectorAll('[data-en][data-cz]').forEach((el) => {
+    el.textContent = el.dataset[lang];
+  });
 
+  localStorage.setItem('ywm-language', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('ywm-language') || 'en';
+  setLanguage(savedLanguage);
+});
+</script>
 </body>
 </html>

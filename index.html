@@ -90,6 +90,7 @@
   </a>
 
   <nav class="nav" aria-label="Main navigation">
+
     <div class="header-socials">
       <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
         <img src="assets/sm_icons/fb.png" alt="Facebook">
@@ -104,14 +105,15 @@
       </a>
     </div>
 
-    <a href="index.html">Home</a>
-    <a href="work.html">Work</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html" data-en="Home" data-cz="Domů">Home</a>
+    <a href="work.html" data-en="Work" data-cz="Portfolio">Work</a>
+    <a href="services.html" data-en="Services" data-cz="Služby">Services</a>
+    <a href="contact.html" data-en="Contact" data-cz="Kontakt">Contact</a>
 
-    <a class="lang" href="index.html">🇬🇧 ENG</a>
-    <a class="lang" href="#">🇨🇿 CZ</a>
-  </nav>
+    <a class="lang" href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
+    <a class="lang" href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
+
+</nav>
 </header>
 <main id="top">
   <section class="hero" aria-label="YWM hero showreel">
@@ -120,15 +122,28 @@
     </video>
     <div class="hero-inner">
       <img class="hero-logo" src="assets/ywm-logo-transparent.png" alt="YWM Yellow World Media logo">
-      <h1>Professional <span>Visual Content</span><br>for Growing Businesses</h1>
-      <p class="lead">We create visual content that helps brands stand out, connect with people and grow.</p>
-      <div class="actions">
-        <a class="btn primary" href="contact.html">Start Your Project</a>
-        <a class="btn" href="work.html">View Our Work</a>
-      </div>
-    </div>
-    <div class="scroll">YWM</div>
-  </section>
+   <h1 id="hero-title">
+  Professional <span>Visual Content</span><br>for Growing Businesses
+</h1>
+  <p class="lead"
+   data-en="We create visual content that helps brands stand out, connect with people and grow."
+   data-cz="Vytváříme vizuální obsah, který pomáhá značkám vyniknout, spojit se s lidmi a růst.">
+We create visual content that helps brands stand out, connect with people and grow.
+</p>
+       <a class="btn primary"
+   href="contact.html"
+   data-en="Start Your Project"
+   data-cz="Začněte svůj projekt">
+Start Your Project
+</a>
+
+<a class="btn"
+   href="work.html"
+   data-en="View Our Work"
+   data-cz="Naše práce">
+View Our Work
+</a>
+  
 </main>
 
 <footer>
@@ -148,3 +163,38 @@
 
   <div>© 2026 YWM — Yellow World Media · Video. Photography. Business Growth.</div>
 </footer>
+<footer>
+  ...
+</footer>
+
+<script>
+const translations = {
+  en: {
+    heroTitle: 'Professional <span>Visual Content</span><br>for Growing Businesses'
+  },
+  cz: {
+    heroTitle: 'Profesionální <span>vizuální obsah</span><br>pro rostoucí firmy'
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll('[data-en][data-cz]').forEach((el) => {
+    el.textContent = el.dataset[lang];
+  });
+
+  const hero = document.getElementById('hero-title');
+  if (hero) {
+    hero.innerHTML = translations[lang].heroTitle;
+  }
+
+  localStorage.setItem('ywm-language', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('ywm-language') || 'en';
+  setLanguage(savedLanguage);
+});
+</script>
+
+</body>
+</html>

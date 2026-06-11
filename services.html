@@ -110,8 +110,8 @@
 
 </div>
 
-<a class="lang" href="index.html">🇬🇧 ENG</a>
-<a class="lang" href="#">🇨🇿 CZ</a> 
+<a class="lang" href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
+<a class="lang" href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
   </nav>
 </header>
 <main class="page-main">
@@ -119,37 +119,68 @@
     <div class="wrap">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Services</p>
-          <h2>What We <span>Do</span></h2>
+          <p class="eyebrow"
+   data-en="Services"
+   data-cz="Služby">
+   Services
+</p>
+          <h2 id="what-we-do-title">
+  What We <span>Do</span>
+</h2>
         </div>
-        <p class="sub">Clear, business-focused content creation designed to help brands look professional and attract customers.</p>
+       <p class="sub"
+   data-en="Clear, business-focused content creation designed to help brands look professional and attract customers."
+   data-cz="Tvorba obsahu zaměřená na podnikání, která pomáhá značkám působit profesionálně a získávat zákazníky.">
+   Clear, business-focused content creation designed to help brands look professional and attract customers.
+</p>
       </div>
 
       <div class="services-grid">
         <div class="service">
           <div class="num">01</div>
-          <h3>Content Creation</h3>
-          <p>Video and photography that showcase your business, products and services.</p>
+          <h3 data-en="Content Creation"
+    data-cz="Tvorba obsahu">
+    Content Creation
+</h3>
+          <p data-en="Video and photography that showcase your business, products and services."
+   data-cz="Video a fotografie, které prezentují vaše podnikání, produkty a služby.">
+   Video and photography that showcase your business, products and services.
+</p>
         </div>
 
         <div class="service">
           <div class="num">02</div>
-          <h3>Social Media Content</h3>
-          <p>Short-form content designed for visibility, engagement and growth.</p>
+          <h3 data-en="Social Media Content"
+    data-cz="Obsah pro sociální sítě">
+    Social Media Content
+</h3>
+          <p data-en="Short-form content designed for visibility, engagement and growth."
+   data-cz="Krátký obsah navržený pro viditelnost, zapojení a růst.">
+   Short-form content designed for visibility, engagement and growth.
+</p>
         </div>
 
         <div class="service">
           <div class="num">03</div>
-          <h3>Advertising & Brand Visuals</h3>
-          <p>Creative visuals that attract attention and support your marketing.</p>
+          <h3 data-en="Advertising & Brand Visuals"
+    data-cz="Reklama a značkové vizuály">
+    Advertising & Brand Visuals
+</h3>
+          <p data-en="Creative visuals that attract attention and support your marketing."
+   data-cz="Kreativní vizuály, které upoutají pozornost a podpoří vaše marketingové aktivity.">
+   Creative visuals that attract attention and support your marketing.
+</p>
         </div>
       </div>
 
       <div class="quality-strip" aria-label="Quality features">
-        <div><span>Quality</span>4K Production</div>
-        <div><span>Output</span>Video & Photo</div>
-        <div><span>Platforms</span>Web & Social</div>
-        <div><span>Focus</span>Business Growth</div>
+        <div>
+  <span data-en="Quality" data-cz="Kvalita">Quality</span>
+  <span data-en="4K Production" data-cz="4K Produkce">4K Production</span>
+</div>
+        <div><span data-en="Output" data-cz="Výstup">Output</span><span data-en="Video & Photo" data-cz="Video a Foto">Video & Photo</span></div>
+        <div><span data-en="Platforms" data-cz="Platformy">Platforms</span><span data-en="Web & Social" data-cz="Web a Sociální sítě">Web & Social</span></div>
+        <div><span data-en="Focus" data-cz="Zaměření">Focus</span><span data-en="Business Growth" data-cz="Růst podnikání">Business Growth</span></div>
       </div>
     </div>
   </section>
@@ -159,8 +190,12 @@
       <div class="review-grid">
         <div class="quote">
           <div class="stars">★★★★★</div>
-          <p>Visual content that helps businesses look professional, build trust and stand out online.</p>
-          <small>Client reviews and testimonials can be added here as YWM grows.</small>
+          <p data-en="Visual content that helps businesses look professional, build trust and stand out online." data-cz="Vizuální obsah, který pomáhá podnikům vypadat profesionálně, budovat důvěru a vynikat online.">
+            Visual content that helps businesses look professional, build trust and stand out online.
+          </p>
+          <small data-en="Client reviews and testimonials can be added here as YWM grows." data-cz="Recenze a testemony klientů mohou být přidány zde, jak YWM roste.">
+            Client reviews and testimonials can be added here as YWM grows.
+          </small>
         </div>
       </div>
     </div>
@@ -173,5 +208,34 @@
     <div>© 2026 YWM — Yellow World Media · Video. Photography. Business Growth.</div>
   </div>
 </footer>
+<script>
+const translations = {
+  en: {
+    whatWeDoTitle: 'What We <span>Do</span>'
+  },
+  cz: {
+    whatWeDoTitle: 'Co <span>děláme</span>'
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll('[data-en][data-cz]').forEach((el) => {
+    el.textContent = el.dataset[lang];
+  });
+
+  const whatWeDoTitle = document.getElementById('what-we-do-title');
+
+  if (whatWeDoTitle) {
+    whatWeDoTitle.innerHTML = translations[lang].whatWeDoTitle;
+  }
+
+  localStorage.setItem('ywm-language', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('ywm-language') || 'en';
+  setLanguage(savedLanguage);
+});
+</script>
 </body>
 </html>
