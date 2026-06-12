@@ -7,27 +7,20 @@
 
 <style>
 body{
-    margin:0;
-    background:#030303;
-    color:white;
-    font-family:Arial,sans-serif;
+  margin:0;
+  background:#030303;
+  color:white;
+  font-family:Arial,sans-serif;
 }
 
 .header{
-    padding:30px;
-    text-align:center;
+  padding:30px;
+  text-align:center;
 }
 
 .header h1{
-    margin:0;
-    color:#f4c400;
-}
-
-.back{
-    display:inline-block;
-    margin-top:15px;
-    color:#f4c400;
-    text-decoration:none;
+  margin:0;
+  color:#f4c400;
 }
 
 .gallery{
@@ -63,16 +56,7 @@ body{
     border-radius:14px;
   }
 }
-.lang-switch{
-    margin-top:15px;
-}
 
-.lang-switch a{
-    color:#f4c400;
-    text-decoration:none;
-    font-weight:bold;
-    margin:0 8px;
-}
 header{
   position:sticky;
   top:0;
@@ -89,13 +73,6 @@ header{
   height:45px;
 }
 
-.back-btn{
-  color:#f4c400;
-  font-size:14px;
-  font-weight:bold;
-  text-decoration:none;
-}
-
 .lang-btn{
   color:white;
   text-decoration:none;
@@ -108,6 +85,70 @@ header{
 .lang-btn:hover{
   color:#f4c400;
 }
+
+@media(max-width:768px){
+
+  header{
+    padding:12px;
+  }
+
+  .logo{
+    height:30px;
+  }
+
+  .lang-btn{
+    font-size:14px;
+  }
+
+}
+
+.floating-work{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:999;
+}
+
+.floating-work a{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:999px;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.15);
+  color:#f4c400;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.floating-work a:hover{
+  border-color:#f4c400;
+}
+
+.header-socials{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.header-socials img{
+  width:18px;
+  height:18px;
+  display:block;
+}
+.gallery img{
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gallery img:focus,
+.gallery img:active{
+  transform:scale(1);
+}
 </style>
 </head>
 
@@ -118,44 +159,40 @@ header{
     <img src="assets/ywm-logo-transparent.png" class="logo" alt="YWM">
   </a>
 
-  <div style="display:flex;align-items:center;gap:20px;">
-
-    <a href="work.html" class="back-btn"
-       data-en="← Back to Work"
-       data-cz="← Zpět na portfolio">
-      ← Back to Work
-    </a>
-
+  <div class="header-socials">
     <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
-      <img src="assets/sm_icons/fb.png" alt="Facebook" style="width:18px;height:18px;">
+      <img src="assets/sm_icons/fb.png" alt="Facebook">
     </a>
 
     <a href="https://www.instagram.com/yellow_world_media/" target="_blank">
-      <img src="assets/sm_icons/insta.png" alt="Instagram" style="width:18px;height:18px;">
+      <img src="assets/sm_icons/insta.png" alt="Instagram">
     </a>
 
-    <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
-      <img src="assets/sm_icons/yt.png" alt="YouTube" style="width:18px;height:18px;">
+    <a href="https://www.youtube.com/@ywmcz" target="_blank">
+      <img src="assets/sm_icons/yt.png" alt="YouTube">
     </a>
+  </div>
 
-    <a href="#" onclick="setLanguage('en'); return false;" class="lang-btn">
-      🇬🇧 ENG
-    </a>
-    <a href="#" onclick="setLanguage('cz'); return false;" class="lang-btn">
-      🇨🇿 CZ
-    </a>
-
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a class="lang-btn" href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
+    <a class="lang-btn" href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
   </div>
 </header>
 
 <div class="header">
   <h1
     data-en="Family Photography"
-    data-cz="Rodinná fotografie">
+    data-cz="Rodinné fotografie">
     Family Photography
   </h1>
 </div>
-
+<div class="floating-work">
+  <a href="work.html"
+     data-en="← Work"
+     data-cz="← Portfolio">
+     ← Work
+  </a>
+</div>
 <div class="gallery">
 <img src="assets/family/ADBERNFAMNB68.b.jpg" alt="">
 <img src="assets/family/etthim.jpg" alt="">    
@@ -216,20 +253,95 @@ document.addEventListener('DOMContentLoaded', () => {
 </style>
 
 <script>
+const galleryImages = Array.from(document.querySelectorAll('.gallery img'));
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
-document.querySelectorAll('.gallery img').forEach(img => {
-  img.style.cursor = 'pointer';
+let currentIndex = 0;
+let startX = 0;
+let endX = 0;
 
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightbox.style.display = 'flex';
+function openLightbox(index){
+  currentIndex = index;
+  lightboxImg.src = galleryImages[currentIndex].src;
+  lightbox.style.display = 'flex';
+}
+
+function showNext(){
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex].src;
+}
+
+function showPrev(){
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex].src;
+}
+
+function handleSwipe(){
+  const diff = startX - endX;
+
+  if(Math.abs(diff) > 50){
+    if(diff > 0){
+      showNext();
+    }else{
+      showPrev();
+    }
+  }
+}
+
+galleryImages.forEach((img,index)=>{
+  img.addEventListener('click',()=>{
+    openLightbox(index);
   });
 });
 
-lightbox.addEventListener('click', () => {
-  lightbox.style.display = 'none';
+lightboxImg.addEventListener('click',(e)=>{
+  e.stopPropagation();
+  showNext();
+});
+
+function closeLightbox(){
+  lightbox.style.display='none';
+  document.activeElement.blur();
+}
+
+lightbox.addEventListener('click',()=>{
+  closeLightbox();
+});
+
+lightbox.addEventListener('touchstart',(e)=>{
+  startX = e.touches[0].clientX;
+}, { passive:true });
+
+lightbox.addEventListener('touchmove',(e)=>{
+  endX = e.touches[0].clientX;
+}, { passive:true });
+
+lightbox.addEventListener('touchend',()=>{
+  handleSwipe();
+});
+
+lightboxImg.addEventListener('touchstart',(e)=>{
+  e.stopPropagation();
+  startX = e.touches[0].clientX;
+}, { passive:true });
+
+lightboxImg.addEventListener('touchmove',(e)=>{
+  e.stopPropagation();
+  endX = e.touches[0].clientX;
+}, { passive:true });
+
+lightboxImg.addEventListener('touchend',(e)=>{
+  e.stopPropagation();
+  handleSwipe();
+});
+
+document.addEventListener('keydown',(e)=>{
+  if(lightbox.style.display!=='flex') return;
+
+  if(e.key==='ArrowRight') showNext();
+  if(e.key==='ArrowLeft') showPrev();
+if(e.key==='Escape') closeLightbox();
 });
 </script>
 </body>

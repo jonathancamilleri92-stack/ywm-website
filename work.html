@@ -36,12 +36,23 @@ transform:scale(1.04);
     .contact{text-align:center;background:linear-gradient(to bottom,#030303,#090909)}.contact h2{max-width:780px;margin:auto}.contact .sub{margin:18px auto 28px}.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
     footer{border-top:1px solid var(--line);padding:36px clamp(18px,4vw,46px);color:#8f8f8f;font-size:13px}.foot{width:min(var(--max),100%);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}.foot img{height:34px;width:auto;opacity:.95}.edit-note{margin-top:26px;padding:16px;border:1px dashed rgba(244,196,0,.35);border-radius:16px;color:#9a9a9a;font-size:13px;line-height:1.55}.edit-note strong{color:var(--yellow)}
     @media(max-width:980px){.work-grid{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.quality-strip{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}.section-head{display:block}.section-head .sub{margin-top:16px}}
-    @media(max-width:760px){header{padding:14px 16px}.brand img{height:32px}.nav a:not(.lang){display:none}.nav{gap:0;font-size:11px}.hero{padding:108px 18px 64px}.hero-logo{width:min(350px,88vw);margin-bottom:22px}.lead{font-size:15px}.actions .btn{width:100%;max-width:280px}section{padding:70px 18px}.logo-row{grid-template-columns:1fr 1fr}.work-grid{grid-template-columns:1fr}.project{min-height:430px}.quality-strip{grid-template-columns:1fr}.foot{display:block;text-align:center}.foot img{margin-bottom:16px}.scroll{display:none}}
+    @media(max-width:760px){header{padding:14px 16px}.brand img{height:32px}.nav a:not(.lang){display:none}.nav{gap:0;font-size:11px}.hero{padding:108px 18px 64px}.hero-logo{width:min(350px,88vw);margin-bottom:22px}.lead{font-size:15px}.actions .btn{width:100%;max-width:280px}section{padding:70px 18px}.logo-row{grid-template-columns:1fr 1fr}.work-grid{grid-template-columns:1fr}.project{min-height:200px}.quality-strip{grid-template-columns:1fr}.foot{display:block;text-align:center}.foot img{margin-bottom:16px}.scroll{display:none}}
   
     .page-main{min-height:100svh;padding-top:88px}
     .work-block + .work-block{margin-top:86px}
     .back-home{margin-top:30px}
 
+    .project h3{
+  font-size:18px;
+}
+
+.project p{
+  font-size:12px;
+}
+
+.project-info{
+  padding:14px;
+}
     
  .social-links{
   display:flex;
@@ -127,6 +138,16 @@ transform:scale(1.04);
   position: relative;
   z-index: 2;
 }
+.section-head .sub{
+  font-size:12px;
+  line-height:1.4;
+}
+@media(max-width:760px){
+  .contact .sub{
+    font-size:13px;
+    line-height:1.4;
+    max-width:320px;
+  }}
   </style>
 </head>
 <body>
@@ -203,7 +224,7 @@ A curated showcase of videos, photography and advertising visuals created for re
 </h3>
     <p
   data-en="Premium visuals for construction, lifestyle and exterior spaces."
-  data-cz="Prémiální vizuální obsah pro stavebnictví, životní styl a venkovní prostory.">
+  data-cz="Prémiový vizuální obsah pro stavebnictví, životní styl a venkovní prostory.">
   Premium visuals for construction, lifestyle and exterior spaces.
 </p>
   </div>
@@ -255,7 +276,7 @@ A curated showcase of videos, photography and advertising visuals created for re
 </h3>
     <p
   data-en="Showcasing exceptional landscaping and natural pool design."
-  data-cz="Prezentace výjimečného krajiny a přírodního bazénu.">
+  data-cz="Prezentace výjimečné krajiny a přírodního jezírka.">
   Showcasing exceptional landscaping and natural pool design.
 </p>
   </div>
@@ -276,7 +297,7 @@ A curated showcase of videos, photography and advertising visuals created for re
 </div>
     <h3
   data-en="Tattoo Artist"
-  data-cz="Tattoo umělec">
+  data-cz="Tattoo Artist">
   Tattoo Artist
 </h3>
     <p
@@ -322,7 +343,7 @@ Professional photography for families, newborns, businesses and fine art project
 </h3>
               <p
   data-en="Natural family moments captured with warmth, emotion and authenticity."
-  data-cz="Přirozené rodinné okamžiky zachycené s teplem, emocí a autenticitou.">
+  data-cz="Přirozené rodinné okamžiky zachycené, emocí a autenticitou.">
   Natural family moments captured with warmth, emotion and authenticity.
 </p>
             </div>
@@ -337,7 +358,7 @@ Professional photography for families, newborns, businesses and fine art project
 </h3>
              <p
   data-en="Capturing the beauty of pregnancy and the first precious moments of your newborn's life."
-  data-cz="Zachycování krásy těhotenství a prvních cenných okamžiků života vašeho novorozence.">
+  data-cz="Zachycování krásy Těhotenské a new born okamžiků života vašeho novorozence.">
   Capturing the beauty of pregnancy and the first precious moments of your newborn's life.
 </p>
             </div>
@@ -353,7 +374,7 @@ Professional photography for families, newborns, businesses and fine art project
 </h3>
               <p
   data-en="Professional imagery that strengthens your business and visual identity."
-  data-cz="Profesionální obrazy, které posilují vaši firmu a vizuální identitu.">
+  data-cz="Profesionální fotografie, které posilují vaši firmu a vizuální identitu.">
   Professional imagery that strengthens your business and visual identity.
 </p>
             </div>
@@ -411,7 +432,21 @@ document.querySelectorAll('.video-project').forEach((card) => {
   }
 
   card.addEventListener('mouseenter', loadVideo);
-  card.addEventListener('mouseleave', pauseVideo);
+card.addEventListener('mouseleave', pauseVideo);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      loadVideo();
+    } else {
+      pauseVideo();
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+observer.observe(card);
 
   video.addEventListener('ended', restartAtEnd);
 });

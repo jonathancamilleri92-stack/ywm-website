@@ -23,12 +23,6 @@ body{
   color:#f4c400;
 }
 
-.back{
-  display:inline-block;
-  margin-top:15px;
-  color:#f4c400;
-  text-decoration:none;
-}
 .gallery{
   columns:4 200px;
   column-gap:12px;
@@ -63,7 +57,6 @@ body{
   }
 }
 
-
 header{
   position:sticky;
   top:0;
@@ -80,13 +73,6 @@ header{
   height:45px;
 }
 
-.back-btn{
-  color:#f4c400;
-  font-size:14px;
-  font-weight:bold;
-  text-decoration:none;
-}
-
 .lang-btn{
   color:white;
   text-decoration:none;
@@ -99,43 +85,105 @@ header{
 .lang-btn:hover{
   color:#f4c400;
 }
+
+@media(max-width:768px){
+
+  header{
+    padding:12px;
+  }
+
+  .logo{
+    height:30px;
+  }
+
+  .lang-btn{
+    font-size:14px;
+  }
+
+}
+
+.floating-work{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:999;
+}
+
+.floating-work a{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:999px;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.15);
+  color:#f4c400;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.floating-work a:hover{
+  border-color:#f4c400;
+}
+
+.header-socials{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.header-socials img{
+  width:18px;
+  height:18px;
+  display:block;
+}
 </style>
 </head>
 
 <body>
+  <div class="floating-work">
+  <a href="work.html"
+     data-en="← Work"
+     data-cz="← Portfolio">
+     ← Work
+  </a>
+</div>
 
 <header>
   <a href="index.html">
     <img src="assets/ywm-logo-transparent.png" class="logo" alt="YWM">
   </a>
 
-  <div style="display:flex;align-items:center;gap:20px;">
+  <div class="header-socials">
 
-    <a href="work.html" class="back-btn"
-       data-en="← Back to Work"
-       data-cz="← Zpět na portfolio">
-      ← Back to Work
-    </a>
+  <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
+    <img src="assets/sm_icons/fb.png" alt="Facebook">
+  </a>
 
-    <a href="https://www.facebook.com/yellowworldmedia" target="_blank">
-      <img src="assets/sm_icons/fb.png" alt="Facebook" style="width:18px;height:18px;">
-    </a>
+  <a href="https://www.instagram.com/yellow_world_media/" target="_blank">
+    <img src="assets/sm_icons/insta.png" alt="Instagram">
+  </a>
 
-    <a href="https://www.instagram.com/yellow_world_media/" target="_blank">
-      <img src="assets/sm_icons/insta.png" alt="Instagram" style="width:18px;height:18px;">
-    </a>
+  <a href="https://www.youtube.com/@ywmcz" target="_blank">
+    <img src="assets/sm_icons/yt.png" alt="YouTube">
+  </a>
 
-    <a href="https://www.youtube.com/@yellowworldmedia5967" target="_blank">
-      <img src="assets/sm_icons/yt.png" alt="YouTube" style="width:18px;height:18px;">
-    </a>
-
+</div>
+ <div style="display:flex;align-items:center;gap:10px;">
+  
     <a class="lang-btn" href="#" onclick="setLanguage('en'); return false;">🇬🇧 ENG</a>
     <a class="lang-btn" href="#" onclick="setLanguage('cz'); return false;">🇨🇿 CZ</a>
 
   </div>
 </header>
 
+
 <div class="header">
+  
   <h1
     data-en="Pregnancy & Newborn"
     data-cz="Těhotenství a novorozenci">
@@ -201,6 +249,15 @@ header{
   <img src="assets/pregnancy-newborn/y2.jpg" alt="">
   <img src="assets/pregnancy-newborn/y4.jpg" alt="">
 </div>
+<div class="back-home">
+  <a href="work.html"
+     class="back-work-btn"
+     data-en="← Back to Work"
+     data-cz="← Zpět na portfolio">
+     ← Back to Work
+  </a>
+</div>
+
 <script>
 function setLanguage(lang) {
   document.querySelectorAll('[data-en][data-cz]').forEach((el) => {
@@ -239,20 +296,67 @@ document.addEventListener('DOMContentLoaded', () => {
 </style>
 
 <script>
+const galleryImages = Array.from(document.querySelectorAll('.gallery img'));
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 
-document.querySelectorAll('.gallery img').forEach(img => {
-  img.style.cursor = 'pointer';
+let currentIndex = 0;
+let startX = 0;
 
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightbox.style.display = 'flex';
+function openLightbox(index){
+  currentIndex = index;
+  lightboxImg.src = galleryImages[currentIndex].src;
+  lightbox.style.display = 'flex';
+}
+
+function showNext(){
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex].src;
+}
+
+function showPrev(){
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex].src;
+}
+
+galleryImages.forEach((img,index)=>{
+  img.addEventListener('click',()=>{
+    openLightbox(index);
   });
 });
 
-lightbox.addEventListener('click', () => {
-  lightbox.style.display = 'none';
+lightboxImg.addEventListener('click',(e)=>{
+  e.stopPropagation();
+  showNext();
+});
+
+lightbox.addEventListener('click',()=>{
+  lightbox.style.display='none';
+});
+
+document.addEventListener('keydown',(e)=>{
+  if(lightbox.style.display!=='flex') return;
+
+  if(e.key==='ArrowRight') showNext();
+  if(e.key==='ArrowLeft') showPrev();
+  if(e.key==='Escape') lightbox.style.display='none';
+});
+
+lightbox.addEventListener('touchstart',(e)=>{
+  startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener('touchend',(e)=>{
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if(Math.abs(diff) > 50){
+    if(diff > 0){
+      showNext();
+    }else{
+      showPrev();
+    }
+  }
 });
 </script>
 </body>
